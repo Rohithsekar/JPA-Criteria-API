@@ -1,0 +1,28 @@
+spring:
+  datasource:
+    url: jdbc:h2:mem:testdb # JDBC URL for H2 in-memory database
+    driverClassName: org.h2.Driver
+    username: sa # Default H2 username
+    password:   # Default H2 password (leave empty)
+
+  h2:
+    console:
+      enabled: true # Enable H2 console for development (disable it in production)
+      path: /h2-console # URL path for accessing the H2 console
+      settings:
+        trace: false
+        web-allow-others: false
+
+  jpa:
+    hibernate:
+      ddl-auto: create-drop # Create and drop the database schema on startup and shutdown (for development, use 'update' or 'none' in production)
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.H2Dialect # H2 dialect for Hibernate
+        show_sql: true # Show SQL queries in the console (use 'false' in production)
+        format_sql: true
+
+server:
+  port: 8080 # Port on which the application will run
+
+# Additional configuration properties can be added as needed
